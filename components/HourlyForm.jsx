@@ -115,7 +115,7 @@ const HourlyForm = ({ bartenders, barbacks, barbackTipOut, tipOutTotal }) => {
               Bartender {index + 1} hours:
               <input
                 className="border border-gray-400 rounded-md p-2 m-2 text-black"
-                type="decimal"
+                type="number"
                 name={`bartender${index + 1}hours`}
                 placeholder={`Bartender ${index + 1} hours`}
               />
