@@ -1,12 +1,10 @@
 "use client";
 
-import { useCallback, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
-import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const Home = () => {
   const router = useRouter();
-  const searchParams = useSearchParams();
 
   const [formData, setFormData] = useState({
     shift: "AM",
@@ -85,6 +83,7 @@ const Home = () => {
                 type="number"
                 name="tips"
                 placeholder="Enter your tips"
+                required
               />
             </label>
 
@@ -107,6 +106,8 @@ const Home = () => {
                 type="number"
                 name="bartenders"
                 placeholder="Bartenders on shift"
+                min={0}
+                required
               />
             </label>
             <label className="flex flex-col items-center justify-center">
@@ -118,6 +119,8 @@ const Home = () => {
                 type="number"
                 name="barbacks"
                 placeholder="Bar Backs on shift"
+                min={0}
+                required
               />
             </label>
             <label className="flex flex-col items-center justify-center">
