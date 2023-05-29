@@ -6,7 +6,7 @@ export const Nav = () => {
       <Image
         src={"/assets/images/LOGO_HEADER.png"}
         alt="logo"
-        width={400}
+        width={350}
         height={200}
       />
     </div>
