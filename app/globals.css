@@ -17,11 +17,9 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-image: radial-gradient(
+    circle 911px at 0.4% 50.5%,
+    rgba(187, 68, 48, 1) 18.7%,
+    rgba(21, 30, 33, 1) 90%
+  );
 }

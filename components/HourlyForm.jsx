@@ -1,6 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { Lato } from "next/font/google";
+
+export const lato = Lato({
+  subsets: ["latin-ext"],
+  weight: "400",
+});
 
 const HourlyForm = ({ bartenders, barbacks, barbackTipOut, tipOutTotal }) => {
   // This is the form data that will be used to calculate the total hourly pay for each bartender and barback.
@@ -90,7 +96,7 @@ const HourlyForm = ({ bartenders, barbacks, barbackTipOut, tipOutTotal }) => {
   return (
     <>
       {/* This form collects the hours of staff worked and displays the total upon completing the boxes. */}
-      <div className="flex flex-col items-center justify-evenly p-4 mb-10">
+      <div className={`flex flex-col items-center justify-evenly p-4 mb-10 text-slate-200 ${lato.className}`}>
         <div className="m-5">
           <a
             className="bg-blue-800/50 text-slate-200 m-2 p-3 rounded hover:bg-blue-900/40 hover:text-slate-50 hover:font-bold hover:italic"
@@ -100,12 +106,12 @@ const HourlyForm = ({ bartenders, barbacks, barbackTipOut, tipOutTotal }) => {
             Reset
           </a>
         </div>
-        <div className="flex flex-wrap w-screen justify-center">
-          <div className="text-xl text-center m-5 p-2 border border-indigo-700 rounded-lg">
+        <div className="flex flex-wrap w-full justify-center">
+          <div className="text-xl text-center m-5 p-2 border border-indigo-200 rounded-lg">
             BT Tips Before split: $
-            {parseFloat(tipOutTotal).toFixed(2)}
+            {parseFloat(tipOutTotal - barbackTipOut).toFixed(2)}
           </div>
-          <div className="text-xl text-center mb-3 p-2 border border-indigo-700 rounded-lg">
+          <div className="text-xl text-center mb-3 p-2 border border-indigo-200 rounded-lg">
             BB Tips Before split: $
             {parseFloat(barbackTipOut).toFixed(2)}
           </div>
@@ -156,9 +162,9 @@ const HourlyForm = ({ bartenders, barbacks, barbackTipOut, tipOutTotal }) => {
                 key={index}
                 className="flex flex-col items-center justify-center"
               >
-                <p className="text-xl text-blue-500 m-5 p-3 items-center justify-center border border-indigo-700 rounded-lg">
+                <p className="text-xl m-5 p-3 items-center justify-center border border-indigo-200 rounded-lg">
                   Bartender {index + 1} Tip Out:{" "}
-                  <span className="text-xl text-blue-100 m-2 items-center justify-center">
+                  <span className="text-xl m-2 items-center justify-center">
                     $
                     {parseFloat(
                       parseFloat(hourlyTipOut.bartenderHourlyTipOut) *
@@ -175,9 +181,9 @@ const HourlyForm = ({ bartenders, barbacks, barbackTipOut, tipOutTotal }) => {
                 key={index}
                 className="flex flex-col items-center justify-center"
               >
-                <p className="text-xl text-blue-300 m-5 p-3 items-center justify-center border border-indigo-700 rounded-lg">
+                <p className="text-xl m-5 p-3 items-center justify-center border border-indigo-200 rounded-lg">
                   Barback {index + 1} Tip Out:{" "}
-                  <span className="text-xl text-blue-100 m-2 items-center justify-center">
+                  <span className="text-xl m-2 items-center justify-center">
                     $
                     {parseFloat(
                       parseFloat(

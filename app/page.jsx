@@ -2,6 +2,12 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { Lato } from "next/font/google";
+
+export const lato = Lato({
+  subsets: ["latin-ext"],
+  weight: "400",
+});
 
 const Home = () => {
   const router = useRouter();
@@ -43,15 +49,12 @@ const Home = () => {
     <>
       <main className="flex min-h-screen flex-col items-center justify-evenly p-4">
         <div className="flex flex-col items-center justify-center">
-          <h1 className="text-4xl font-bold text-center">
-            CT Tip Out Calculator
-          </h1>
-          <p className="text-center">
+          <p className="text-center text-slate-50">
             A simple tool to calculate tip outs for the CT Tasting Room.
           </p>
           <div className="m-5">
             <a
-              className="bg-blue-800/50 text-slate-200 m-2 p-3 rounded hover:bg-blue-900/40 hover:text-slate-50 hover:font-bold hover:italic"
+              className="bg-blue-800/75 text-slate-200 m-2 p-3 rounded hover:bg-blue-900/40 hover:text-slate-50 hover:font-bold hover:italic"
               href="/"
               onClick={clearForm}
             >
@@ -59,9 +62,9 @@ const Home = () => {
             </a>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center">
+        <div className={`flex flex-col items-center justify-center ${lato.className}`}>
           <form
-            className="flex flex-col items-center justify-center"
+            className="flex flex-col items-center justify-center text-xl text-slate-200"
             onChange={handleChange}
           >
             <label className="flex flex-col items-center justify-center">
